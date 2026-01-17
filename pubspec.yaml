@@ -1,0 +1,45 @@
+name: medidor_raices
+description: Aplicación móvil para medir raíces usando imágenes con marcadores ArUco como referencia
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # UI
+  cupertino_icons: ^1.0.2
+  
+  # Cámara y galería
+  camera: ^0.10.5+5
+  image_picker: ^1.0.4
+  
+  # Procesamiento de imágenes
+  opencv_dart: ^1.0.4
+  image: ^4.1.3
+  
+  # Generación de PDF
+  pdf: ^3.10.7
+  printing: ^5.11.1
+  
+  # Almacenamiento
+  path_provider: ^2.1.1
+  shared_preferences: ^2.2.2
+  
+  # Utilidades
+  permission_handler: ^11.0.1
+  intl: ^0.18.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  
+  assets:
+    - assets/
