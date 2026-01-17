@@ -134,8 +134,8 @@ class ImageProcessingService {
         final pixel = image.getPixel(x, y);
         final luminance = img.getLuminance(pixel).toInt();
         
-        // Negro si está por debajo del umbral (raíces oscuras)
-        final newPixel = luminance < optimalThreshold
+        // Negro si está por encima del umbral (raíces claras sobre fondo oscuro)
+        final newPixel = luminance > optimalThreshold
             ? img.ColorRgb8(0, 0, 0)
             : img.ColorRgb8(255, 255, 255);
         

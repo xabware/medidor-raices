@@ -35,10 +35,16 @@ class HomeScreen extends StatelessWidget {
         return;
       }
       
+      // Buscar cámara trasera, si no existe usar la primera disponible
+      final backCamera = cameras.firstWhere(
+        (camera) => camera.lensDirection == CameraLensDirection.back,
+        orElse: () => cameras.first,
+      );
+      
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => CameraScreen(camera: cameras.first),
+          builder: (context) => CameraScreen(camera: backCamera),
         ),
       );
     } else if (context.mounted) {
