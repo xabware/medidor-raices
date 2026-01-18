@@ -10,6 +10,7 @@ Aplicación móvil para medir raíces mediante procesamiento de imágenes usando
 - 📄 Generador de PDF con marcadores ArUco para imprimir (A4)
 - 💾 Procesamiento local (sin backend)
 - 📊 Historial de mediciones
+- ☁️ **Integración con Google Sheets** - Envío automático de datos a hojas de cálculo online
 
 ## Requisitos
 
@@ -31,9 +32,23 @@ flutter run
 3. **Capturar foto**: Toma una foto asegurándote que los marcadores ArUco sean visibles
 4. **Ver resultados**: La app detectará automáticamente la escala y medirá cada raíz
 
+### Configurar Google Sheets (opcional)
+
+5. **Ir a Configuración**: Toca el icono de engranaje en la pantalla principal
+6. **Crear Google Apps Script**: Sigue la guía [GOOGLE_SHEETS_SETUP_SIMPLE.md](GOOGLE_SHEETS_SETUP_SIMPLE.md)
+7. **Pegar URL del webhook**: Introduce la URL que te da Google Apps Script
+8. **Activar integración**: Activa el switch para envío automático
+9. **¡Listo!**: Todas las mediciones se guardarán automáticamente en Google Sheets
+
+**⚡ Configuración en 5 minutos** - Sin Google Cloud Console, sin OAuth, sin complicaciones.
+
+Ver [GOOGLE_SHEETS_SETUP_SIMPLE.md](GOOGLE_SHEETS_SETUP_SIMPLE.md) para instrucciones paso a paso.
+
 ## Tecnologías
 
 - Flutter
 - OpenCV (opencv_dart)
 - ArUco markers
 - PDF generation
+- Google Apps Script (webhook)
+- HTTP requests

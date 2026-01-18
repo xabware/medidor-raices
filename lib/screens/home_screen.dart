@@ -7,6 +7,7 @@ import 'camera_screen.dart';
 import 'aruco_pdf_screen.dart';
 import 'gallery_screen.dart';
 import 'processing_screen.dart';
+import 'settings_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -64,6 +65,18 @@ class HomeScreen extends StatelessWidget {
         title: const Text('Medidor de Raíces'),
         centerTitle: true,
         actions: [
+          IconButton(
+            icon: const Icon(Icons.settings),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const SettingsScreen(),
+                ),
+              );
+            },
+            tooltip: 'Configuración',
+          ),
           IconButton(
             icon: const Icon(Icons.history),
             onPressed: () {

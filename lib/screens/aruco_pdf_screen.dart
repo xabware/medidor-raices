@@ -10,14 +10,14 @@ class ArucoPdfScreen extends StatelessWidget {
   Future<Uint8List> _generateArucoPdf() async {
     final pdf = pw.Document();
 
-    // Generar PDF con marcadores ArUco en las esquinas y fondo negro
+    // Generar PDF con marcadores ArUco en las esquinas y fondo blanco
     pdf.addPage(
       pw.Page(
         pageFormat: PdfPageFormat.a4,
         margin: pw.EdgeInsets.all(20),
         build: (context) {
           return pw.Container(
-            color: PdfColors.black,
+            color: PdfColors.white,
             child: pw.Stack(
               children: [
               // Título e instrucciones en el centro
@@ -30,18 +30,18 @@ class ArucoPdfScreen extends StatelessWidget {
                       style: pw.TextStyle(
                         fontSize: 24,
                         fontWeight: pw.FontWeight.bold,
-                        color: PdfColors.white,
+                        color: PdfColors.black,
                       ),
                     ),
                     pw.SizedBox(height: 20),
                     pw.Text(
-                      'Coloca las raíces claras sobre esta hoja negra',
-                      style: pw.TextStyle(fontSize: 16, color: PdfColors.white),
+                      'Coloca las raíces sobre esta hoja blanca',
+                      style: pw.TextStyle(fontSize: 16, color: PdfColors.black),
                     ),
                     pw.SizedBox(height: 10),
                     pw.Text(
                       'Asegúrate que los 4 marcadores ArUco sean visibles',
-                      style: pw.TextStyle(fontSize: 12, color: PdfColors.white),
+                      style: pw.TextStyle(fontSize: 12, color: PdfColors.grey700),
                     ),
                   ],
                 ),
@@ -134,8 +134,8 @@ class ArucoPdfScreen extends StatelessWidget {
       width: size,
       height: size,
       decoration: pw.BoxDecoration(
-        border: pw.Border.all(width: 2, color: PdfColors.white),
-        color: PdfColors.black,
+        border: pw.Border.all(width: 2, color: PdfColors.black),
+        color: PdfColors.white,
       ),
       child: pw.Column(
         children: List.generate(6, (row) {
@@ -145,8 +145,8 @@ class ArucoPdfScreen extends StatelessWidget {
                 width: cellSize,
                 height: cellSize,
                 color: pattern[row][col] == 1
-                    ? PdfColors.white
-                    : PdfColors.black,
+                    ? PdfColors.black
+                    : PdfColors.white,
               );
             }),
           );

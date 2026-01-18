@@ -4,9 +4,11 @@ import 'package:path_provider/path_provider.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'dart:io';
 import '../models/root_measurement.dart';
+import 'google_sheets_service.dart';
 
 class StorageService {
   static const String _measurementsKey = 'measurements';
+  final GoogleSheetsService _googleSheetsService = GoogleSheetsService();
 
   /// Guarda una medición en el almacenamiento local
   Future<void> saveMeasurement(RootMeasurement measurement) async {
@@ -33,6 +35,9 @@ class StorageService {
       } else {
         await prefs.setString(_measurementsKey, jsonString);
       }
+      
+      // Enviar a Google Sheets automáticamente si está habilitado
+      await _googleSheetsService.sendMeasurement(measurement);
     } catch (e) {
       print('Error guardando medición: $e');
       // En caso de error de cuota, limpiar e intentar guardar solo esta medición
