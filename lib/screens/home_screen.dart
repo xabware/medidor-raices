@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:camera/camera.dart';
 import '../main.dart';
 import 'camera_screen.dart';
 import 'aruco_pdf_screen.dart';
